@@ -1,19 +1,19 @@
 <%-- 
-    Document   : index
-    Created on : 08/11/2012, 22:11:33
+    Document   : falta
+    Created on : 08/11/2012, 22:39:59
     Author     : 30959306
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="themes/wikimedia.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-        <title>TIA - Terminal Academico</title>
+        <title>TIA - Falta</title>
     </head>
     <body>
         <div class="preview ui-shadow swatch">
@@ -24,7 +24,7 @@
                         <span data-form="ui-icon" class="ui-icon ui-icon-home ui-icon-shadow"></span>
                     </span>
                 </a>
-                <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">TIA - Terminal Academico</h1>
+                <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">TIA - Falta</h1>
                 <a class="ui-btn-right ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-up-a" data-iconpos="notext" data-theme="a" data-role="button" data-icon="grid" title=" Navigation ">
                     <span class="ui-btn-inner ui-btn-corner-all">
                         <span class="ui-btn-text"> chinelo </span>

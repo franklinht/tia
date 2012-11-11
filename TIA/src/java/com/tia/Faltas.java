@@ -37,6 +37,9 @@ public class Faltas extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+        String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
         try {
             
             Document d = XMLParser.leFaltasXML();
@@ -48,7 +51,8 @@ public class Faltas extends HttpServlet {
             out.println("<title>TIA - Faltas</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("Quantidade de faltas: "+d.getRootElement().getAttributeValue("faltas"));
+            out.println("<h3>Quantidade de faltas: "+d.getRootElement().getAttributeValue("faltas")+"</h3>");
+            out.println("<a href='menu.jsp?login="+login+"&senha="+senha+"'>Voltar");
             out.println("</body>");
             out.println("</html>");
         } catch (FileNotFoundException ex) {

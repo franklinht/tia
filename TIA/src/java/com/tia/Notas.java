@@ -36,17 +36,13 @@ public class Notas extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+        String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
+        
         try {
             Document d = XMLParser.leNotasXML();
-            System.out.print(d.getRootElement().getAttributeValue("disciplina0"));
-            System.out.print(d.getRootElement().getAttributeValue("nota0"));
-            System.out.print(d.getRootElement().getAttributeValue("disciplina1"));
-            System.out.print(d.getRootElement().getAttributeValue("nota1"));
-            System.out.print(d.getRootElement().getAttributeValue("disciplina2"));
-            System.out.print(d.getRootElement().getAttributeValue("nota2"));
-            System.out.print(d.getRootElement().getAttributeValue("disciplina3"));
-            System.out.print(d.getRootElement().getAttributeValue("nota3"));
-
+            
             /*
              * TODO output your page here. You may use following sample code.
              */
@@ -57,10 +53,12 @@ public class Notas extends HttpServlet {
             out.println("<body>");
             int i, j;
             for (i = 0; i < 4; i++) {
-                out.println("<h1>Disciplina: " + d.getRootElement().getAttributeValue("disciplina"+i) + "</h1>");
-                out.println("<h1>Nota: " + d.getRootElement().getAttributeValue("nota"+i) + "</h1>");
-                
+                out.println("<h3>Disciplina: " + d.getRootElement().getAttributeValue("disciplina" + i) + "</h3>");
+                out.println("<h3>Nota: " + d.getRootElement().getAttributeValue("nota" + i) + "</h3>");
+
             }
+            out.println("<a href='menu.jsp?login="+login+"&senha="+senha+"'>Voltar");
+
             out.println("</body>");
             out.println("</html>");
         } catch (FileNotFoundException ex) {

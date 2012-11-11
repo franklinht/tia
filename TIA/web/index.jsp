@@ -18,19 +18,7 @@
     <body>
         <div class="preview ui-shadow swatch">
             <div class="ui-header ui-bar-a" data-swatch="a" data-theme="a" data-form="ui-bar-a" data-role="header" role="banner">
-                <a href = "menu.aspx" class="ui-btn-left ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-up-a" data-iconpos="notext" data-theme="a" data-role="button" data-icon="home" title=" Home ">
-                    <span class="ui-btn-inner ui-btn-corner-all">
-                        <span class="ui-btn-text"> cotonete</span>
-                        <span data-form="ui-icon" class="ui-icon ui-icon-home ui-icon-shadow"></span>
-                    </span>
-                </a>
                 <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">TIA - Terminal Academico</h1>
-                <a class="ui-btn-right ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-up-a" data-iconpos="notext" data-theme="a" data-role="button" data-icon="grid" title=" Navigation ">
-                    <span class="ui-btn-inner ui-btn-corner-all">
-                        <span class="ui-btn-text"> chinelo </span>
-                        <span data-form="ui-icon" class="ui-icon ui-icon-grid ui-icon-shadow"></span>
-                    </span>
-                </a>
             </div>
 
             <!-- padroes comecam aqui -->

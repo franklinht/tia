@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
         ////////////////*********************************************////////////////
         
         if(login.equals(Integer.toString(frank.getTia())) && senha.equals(frank.getSenha())){
-            response.sendRedirect(request.getContextPath()+ "/menu.jsp");
+            response.sendRedirect(request.getContextPath()+ "/menu.jsp?login="+login+"&senha="+senha);
         }
         else{
             response.sendRedirect(request.getContextPath()+ "/erro_autenticacao.jsp");

@@ -52,10 +52,15 @@ public class Notas extends HttpServlet {
              */
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Notas</title>");
+            out.println("<title>TIA - Notas</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Notas at " + request.getContextPath() + "</h1>");
+            int i, j;
+            for (i = 0; i < 4; i++) {
+                out.println("<h1>Disciplina: " + d.getRootElement().getAttributeValue("disciplina"+i) + "</h1>");
+                out.println("<h1>Nota: " + d.getRootElement().getAttributeValue("nota"+i) + "</h1>");
+                
+            }
             out.println("</body>");
             out.println("</html>");
         } catch (FileNotFoundException ex) {

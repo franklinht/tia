@@ -40,16 +40,15 @@ public class Faltas extends HttpServlet {
         try {
             
             Document d = XMLParser.leFaltasXML();
-            System.out.print("Quantidade de faltas: " + d.getRootElement().getAttributeValue("faltas"));
             /*
              * TODO output your page here. You may use following sample code.
              */
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Faltas</title>");            
+            out.println("<title>TIA - Faltas</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Faltas at " + request.getContextPath() + "</h1>");
+            out.println("Quantidade de faltas: "+d.getRootElement().getAttributeValue("faltas"));
             out.println("</body>");
             out.println("</html>");
         } catch (FileNotFoundException ex) {

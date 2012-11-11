@@ -34,12 +34,14 @@
             </div>
 
             <!-- padroes comecam aqui -->
-            <div class="ui-content ui-body-a" data-theme="a" data-form="ui-body-a" data-role="content" role="main">
-                <form method="POST" action="Login">
-                    Tia: <input name="login" id="login" type="text" value="30959306" class="input ui-input-text ui-body-a ui-corner-all ui-shadow-inset" data-form="ui-body-a"></input>
-                    Senha: <input name="senha" id="senha" type="text" value="frank" class="input ui-input-text ui-body-a ui-corner-all ui-shadow-inset" data-form="ui-body-a"></input>
-                    <br /><button id="bt_login" data-icon="star" data-theme="b" data-form="ui-btn-up-b" class="ui-btn-hidden" aria-disabled="false" onclick="Login">Login</button>
-                </form>
+            <div class="ui-content ui-body-a" data-theme="a" data-form="ui-body-a" data-role="content" role="main" >
+                <table width="100%" height="100%" align="center">
+                    <tr>
+                        <td align="center">
+                            Erro na autenticação: Verifique os valores digitados (TIA - Senha) e tente novamente. Você não tem permissão para entrar no sistema.
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </body>

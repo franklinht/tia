@@ -34,15 +34,15 @@ public class Login extends HttpServlet {
         
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
+        System.out.print("teste");
+        //Este trecho do código será a simulação ao cadastro de um aluno em um banco de dados
+        Aluno frank = new Aluno(30959306, "frank");
         
-        
-        
-        //substituir por banco de dados;
-        if(login.equals("frank") && senha.equals("123456")){
+        if(login.equals(Integer.toString(frank.getTia())) && senha.equals(frank.getSenha())){
             response.sendRedirect(request.getContextPath()+ "/menu.jsp");
         }
         else{
-            out.print("<div>YEAH YEAH</div>");
+            response.sendRedirect(request.getContextPath()+ "/erro_autenticacao.jsp");
         }
         
         out.close();

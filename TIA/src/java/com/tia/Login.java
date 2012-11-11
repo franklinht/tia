@@ -4,12 +4,16 @@
  */
 package com.tia;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jdom2.JDOMException;
 
 /**
  *
@@ -28,15 +32,23 @@ public class Login extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, FileNotFoundException, JDOMException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         System.out.print("teste");
+        
+        ////////////////*********************************************////////////////
+        ////////////////*********************************************////////////////
         //Este trecho do código será a simulação ao cadastro de um aluno em um banco de dados
         Aluno frank = new Aluno(30959306, "frank");
+        //Este Trecho do código substitui sistemas legado.
+        XMLParser.writeNotasXML();
+        XMLParser.writeFaltasXML();
+        ////////////////*********************************************////////////////
+        ////////////////*********************************************////////////////
         
         if(login.equals(Integer.toString(frank.getTia())) && senha.equals(frank.getSenha())){
             response.sendRedirect(request.getContextPath()+ "/menu.jsp");
@@ -61,8 +73,12 @@ public class Login extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException, FileNotFoundException {
+        try {
+            processRequest(request, response);
+        } catch (JDOMException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -76,8 +92,12 @@ public class Login extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException, FileNotFoundException {
+        try {
+            processRequest(request, response);
+        } catch (JDOMException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -4,11 +4,9 @@
  */
 package com.tia;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -16,9 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.jdom2.Document;
-import org.jdom2.Element;
 import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
 
 /**
  *
@@ -37,23 +33,35 @@ public class Notas extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, JDOMException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
         try {
-            SAXBuilder sb = new SAXBuilder();
-            //Criamos uma classe SAXBuilder que vai processar o XML
-            Document d = sb.build(new File("notas.xml"));
-            System.out.print(d.getRootElement().getAttribute("disciplina"));
+            Document d = XMLParser.leNotasXML();
+            System.out.print(d.getRootElement().getAttributeValue("disciplina0"));
+            System.out.print(d.getRootElement().getAttributeValue("nota0"));
+            System.out.print(d.getRootElement().getAttributeValue("disciplina1"));
+            System.out.print(d.getRootElement().getAttributeValue("nota1"));
+            System.out.print(d.getRootElement().getAttributeValue("disciplina2"));
+            System.out.print(d.getRootElement().getAttributeValue("nota2"));
+            System.out.print(d.getRootElement().getAttributeValue("disciplina3"));
+            System.out.print(d.getRootElement().getAttributeValue("nota3"));
 
-//
-//            while (i.hasNext()) {
-//                Element element = (Element) i.next();
-//                System.out.println("Disciplina: " + element.getAttributeValue("disciplina"));
-//                System.out.println("Nota: " + element.getAttributeValue("nota"));
-//            }
-
+            /*
+             * TODO output your page here. You may use following sample code.
+             */
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Notas</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Notas at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Notas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JDOMException ex) {
+            Logger.getLogger(Notas.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             out.close();
         }
@@ -72,11 +80,7 @@ public class Notas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (JDOMException ex) {
-            Logger.getLogger(Notas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -91,11 +95,7 @@ public class Notas extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (JDOMException ex) {
-            Logger.getLogger(Notas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

@@ -4,12 +4,18 @@
  */
 package com.tia;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.management.modelmbean.XMLParseException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jdom2.Document;
+import org.jdom2.JDOMException;
 
 /**
  *
@@ -32,6 +38,9 @@ public class Faltas extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            
+            Document d = XMLParser.leFaltasXML();
+            System.out.print("Quantidade de faltas: " + d.getRootElement().getAttributeValue("faltas"));
             /*
              * TODO output your page here. You may use following sample code.
              */
@@ -43,6 +52,10 @@ public class Faltas extends HttpServlet {
             out.println("<h1>Servlet Faltas at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Faltas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JDOMException ex) {
+            Logger.getLogger(Faltas.class.getName()).log(Level.SEVERE, null, ex);
         } finally {            
             out.close();
         }

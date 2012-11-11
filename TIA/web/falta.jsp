@@ -35,11 +35,7 @@
 
             <!-- padroes comecam aqui -->
             <div class="ui-content ui-body-a" data-theme="a" data-form="ui-body-a" data-role="content" role="main">
-                <form method="POST" action="Login">
-                    Login: <input name="login" id="login" type="text" value="" class="input ui-input-text ui-body-a ui-corner-all ui-shadow-inset" data-form="ui-body-a"></input>
-                    Senha: <input name="senha" id="senha" type="text" value="" class="input ui-input-text ui-body-a ui-corner-all ui-shadow-inset" data-form="ui-body-a"></input>
-                    <br /><button id="bt_login" data-icon="star" data-theme="b" data-form="ui-btn-up-b" class="ui-btn-hidden" aria-disabled="false" onclick="Login">Login</button>
-                </form>
+
             </div>
         </div>
     </body>
